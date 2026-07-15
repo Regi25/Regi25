@@ -1,20 +1,32 @@
 <p align="center">
-  <picture>
-    <source media="(prefers-color-scheme: light)" srcset="./assets/light.svg">
-    <source media="(prefers-color-scheme: dark)" srcset="./assets/dark.svg">
-    <img alt="Regina Iuldasheva - Frontend Engineer Banner" src="./assets/dark.svg" width="100%">
-  </picture>
+  <img alt="Regina Iuldasheva - Frontend Engineer Banner" src="./assets/dark.svg" width="100%">
 </p>
 
-# Hi there! I'm Regina 👋
+## Hi, I'm Regina 👋
 
-I am a passionate **Frontend Engineer** based in České Budějovice, Czech Republic. I love building clean, modern, and interactive web applications using React, TypeScript, and Next.js, combined with AI-native workflows.
+Frontend Engineer based in the Czech Republic, focused on building fast, accessible, and user-friendly web applications with React, Next.js, and TypeScript. 
 
-### 🛠️ Currently building
-* Modern web solutions and AI assistant integrations.
-* Polishing my portfolio: [my-profile-psi-nine.vercel.app](https://my-profile-psi-nine.vercel.app/)
+I enjoy turning complex ideas into clean interfaces, improving developer experience, and exploring AI-powered workflows.
 
-### 📬 Connect with me
-* **LinkedIn:** [linkedin.com/in/regina-i-227920336](https://www.linkedin.com/in/regina-i-227920336/)
-* **Email:** [reginaiuldasheva@gmail.com](mailto:reginaiuldasheva@gmail.com)
+---
+
+### ⚡ About Me
+
+- 🇨🇿 Based in České Budějovice, Czech Republic
+- ⚛️ Building with React, Next.js, TypeScript & Tailwind CSS
+- 📱 Exploring Flutter for cross-platform mobile development
+- 🤖 Integrating AI-assisted workflows into modern frontends
+- 🌱 Constantly experimenting with UX, motion, and web performance
+
+### 🛠️ What I'm working on
+
+- Crafting highly responsive React and Next.js applications
+- Building custom UI systems and prototyping web experiments
+- Polishing my portfolio: [my-profile-psi-nine.vercel.app](https://my-profile-psi-nine.vercel.app/)
+
+### 📬 Connect
+
+- **Portfolio:** [my-profile-psi-nine.vercel.app](https://my-profile-psi-nine.vercel.app/)
+- **LinkedIn:** [linkedin.com/in/regina-i-227920336](https://www.linkedin.com/in/regina-i-227920336/)
+- **Email:** [regina.iuldasheva@gmail.com](mailto:regina.iuldasheva@gmail.com)
 
