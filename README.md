@@ -1,10 +1,10 @@
 <p align="center">
-  <img alt="Regina Iuldasheva - Frontend Engineer Banner" src="./assets/dark.svg" width="100%">
+  <img alt="Regina Iuldasheva - Frontend Developer Banner" src="./assets/dark.svg" width="100%">
 </p>
 
 ## Hi, I'm Regina 👋
 
-Frontend Engineer based in the Czech Republic, focused on building fast, accessible, and user-friendly web applications with React, Next.js, and TypeScript. 
+Frontend Developer based in the Czech Republic, focused on building fast, accessible, and user-friendly web applications with React, Next.js, and TypeScript. 
 
 I enjoy turning complex ideas into clean interfaces, improving developer experience, and exploring AI-powered workflows.
 
