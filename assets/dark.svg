@@ -1,252 +1,269 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1180 610" width="100%" height="100%">
   <defs>
-    <!-- Background Gradients -->
-    <radialGradient id="bg-glow-1" cx="20%" cy="30%" r="50%">
-      <stop offset="0%" stop-color="#7C3AED" stop-opacity="0.15" />
+    <!-- Background Radial Glows -->
+    <radialGradient id="bg-glow-1" cx="15%" cy="20%" r="60%">
+      <stop offset="0%" stop-color="#7C3AED" stop-opacity="0.18" />
       <stop offset="100%" stop-color="#030712" stop-opacity="0" />
     </radialGradient>
-    <radialGradient id="bg-glow-2" cx="80%" cy="80%" r="60%">
-      <stop offset="0%" stop-color="#22D3EE" stop-opacity="0.12" />
+    <radialGradient id="bg-glow-2" cx="85%" cy="80%" r="65%">
+      <stop offset="0%" stop-color="#22D3EE" stop-opacity="0.15" />
+      <stop offset="100%" stop-color="#030712" stop-opacity="0" />
+    </radialGradient>
+    <radialGradient id="bg-glow-3" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#10B981" stop-opacity="0.08" />
       <stop offset="100%" stop-color="#030712" stop-opacity="0" />
     </radialGradient>
     
-    <!-- Accent Gradients -->
-    <linearGradient id="accent-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+    <!-- Moving Color Gradient for ASCII and Lines -->
+    <linearGradient id="cyber-grad" x1="0%" y1="0%" x2="100%" y2="100%">
       <stop offset="0%" stop-color="#7C3AED">
-        <animate attributeName="stop-color" values="#7C3AED;#22D3EE;#10B981;#7C3AED" dur="10s" repeatCount="indefinite" />
+        <animate attributeName="stop-color" values="#7C3AED;#22D3EE;#10B981;#7C3AED" dur="8s" repeatCount="indefinite" />
       </stop>
       <stop offset="50%" stop-color="#22D3EE">
-        <animate attributeName="stop-color" values="#22D3EE;#10B981;#7C3AED;#22D3EE" dur="10s" repeatCount="indefinite" />
+        <animate attributeName="stop-color" values="#22D3EE;#10B981;#7C3AED;#22D3EE" dur="8s" repeatCount="indefinite" />
       </stop>
       <stop offset="100%" stop-color="#10B981">
-        <animate attributeName="stop-color" values="#10B981;#7C3AED;#22D3EE;#10B981" dur="10s" repeatCount="indefinite" />
+        <animate attributeName="stop-color" values="#10B981;#7C3AED;#22D3EE;#10B981" dur="8s" repeatCount="indefinite" />
       </stop>
-    </linearGradient>
-
-    <linearGradient id="ascii-grad" x1="0%" y1="0%" x2="0%" y2="100%">
-      <stop offset="0%" stop-color="#22D3EE" />
-      <stop offset="100%" stop-color="#7C3AED" />
     </linearGradient>
 
     <linearGradient id="border-grad" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" stop-color="#ffffff" stop-opacity="0.15" />
-      <stop offset="50%" stop-color="#ffffff" stop-opacity="0.03" />
-      <stop offset="100%" stop-color="#ffffff" stop-opacity="0.1" />
+      <stop offset="0%" stop-color="#ffffff" stop-opacity="0.18" />
+      <stop offset="30%" stop-color="#ffffff" stop-opacity="0.03" />
+      <stop offset="70%" stop-color="#ffffff" stop-opacity="0.01" />
+      <stop offset="100%" stop-color="#22D3EE" stop-opacity="0.25" />
     </linearGradient>
 
-    <!-- Glassmorphism Blur Filter -->
-    <filter id="blur-gate">
-      <feGaussianBlur stdDeviation="15" />
+    <!-- Glowing Filters -->
+    <filter id="neon-glow" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="6" result="blur" />
+      <feMerge>
+        <feMergeNode in="blur" />
+        <feMergeNode in="SourceGraphic" />
+      </feMerge>
     </filter>
     
-    <filter id="glow-filter" x="-20%" y="-20%" width="140%" height="140%">
-      <feGaussianBlur stdDeviation="8" result="blur" />
-      <feComposite in="SourceGraphic" in2="blur" operator="over" />
+    <filter id="subtle-glow" x="-10%" y="-10%" width="120%" height="120%">
+      <feGaussianBlur stdDeviation="3" result="blur" />
+      <feMerge>
+        <feMergeNode in="blur" />
+        <feMergeNode in="SourceGraphic" />
+      </feMerge>
     </filter>
+
+    <!-- Mask for Left Panel Scanline -->
+    <clipPath id="left-panel-clip">
+      <rect x="0" y="0" width="390" height="510" rx="18" />
+    </clipPath>
   </defs>
 
   <style>
-    .font-mono { font-family: 'Fira Code', 'Courier New', Courier, monospace; }
+    .font-mono { font-family: 'Fira Code', 'JetBrains Mono', 'Courier New', monospace; }
     .font-sans { font-family: 'Inter', 'SF Pro Display', -apple-system, sans-serif; }
     
-    /* Smooth floating animation */
-    @keyframes float {
-      0% { transform: translateY(0px); }
-      50% { transform: translateY(-8px); }
-      100% { transform: translateY(0px); }
-    }
-    .floating { animation: float 6s ease-in-out indefinite; }
-    
-    /* CSS Pulse for hover triggers */
-    .skill-pill { transition: all 0.3s ease; cursor: pointer; fill: #0F172A; stroke: rgba(255,255,255,0.08); }
-    .skill-pill:hover { fill: #1E293B; stroke: #22D3EE; filter: url(#glow-filter); }
-    .skill-text { fill: #94A3B8; transition: fill 0.3s ease; }
+    /* Interactive CSS Hover Effects */
+    .skill-pill { fill: #0F172A; stroke: rgba(255,255,255,0.06); transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1); cursor: pointer; }
+    .skill-pill:hover { fill: #1E293B; stroke: #22D3EE; transform: scale(1.05); filter: url(#subtle-glow); }
+    .skill-text { fill: #94A3B8; transition: fill 0.3s ease; pointer-events: none; }
     .skill-pill:hover + .skill-text, .skill-text:hover { fill: #F8FAFC; }
+    
+    .social-btn { fill: #0F172A; stroke: rgba(255,255,255,0.06); transition: all 0.3s ease; }
+    .social-btn:hover { fill: #1E293B; stroke: #7C3AED; filter: url(#subtle-glow); }
+    .social-icon { fill: #94A3B8; transition: fill 0.3s ease; }
+    .social-btn:hover + .social-icon, .social-icon:hover { fill: #F8FAFC; }
   </style>
 
-  <!-- Canvas Background -->
+  <!-- Deep Dark Space Background -->
   <rect width="1180" height="610" rx="24" fill="#030712" />
   <rect width="1180" height="610" rx="24" fill="url(#bg-glow-1)" />
   <rect width="1180" height="610" rx="24" fill="url(#bg-glow-2)" />
+  <rect width="1180" height="610" rx="24" fill="url(#bg-glow-3)" />
 
-  <!-- Animated Background Particles -->
-  <g opacity="0.6">
-    <circle cx="100" cy="150" r="1.5" fill="#22D3EE">
-      <animate attributeName="opacity" values="0.2;0.8;0.2" dur="4s" repeatCount="indefinite" />
-    </circle>
-    <circle cx="1080" cy="200" r="2" fill="#7C3AED">
-      <animate attributeName="opacity" values="0.8;0.1;0.8" dur="5s" repeatCount="indefinite" />
-    </circle>
-    <circle cx="550" cy="520" r="1" fill="#10B981">
-      <animate attributeName="opacity" values="0.1;0.9;0.1" dur="3s" repeatCount="indefinite" />
-    </circle>
+  <!-- Shimmering Star Particles -->
+  <g opacity="0.5">
+    <circle cx="150" cy="120" r="1" fill="#22D3EE"><animate attributeName="opacity" values="0.2;1;0.2" dur="3s" repeatCount="indefinite" /></circle>
+    <circle cx="1020" cy="180" r="1.5" fill="#7C3AED"><animate attributeName="opacity" values="1;0.2;1" dur="4.2s" repeatCount="indefinite" /></circle>
+    <circle cx="580" cy="520" r="1" fill="#10B981"><animate attributeName="opacity" values="0.1;0.9;0.1" dur="2.5s" repeatCount="indefinite" /></circle>
   </g>
 
-  <!-- Moving Scanline Across the Screen -->
-  <line x1="0" y1="0" x2="1180" y2="0" stroke="#ffffff" stroke-opacity="0.02" stroke-width="2">
-    <animateTransform attributeName="transform" type="translate" from="0,0" to="0,610" dur="8s" repeatCount="indefinite" />
+  <!-- Moving Global Scanline -->
+  <line x1="0" y1="0" x2="1180" y2="0" stroke="#FFFFFF" stroke-opacity="0.015" stroke-width="2">
+    <animateTransform attributeName="transform" type="translate" from="0,-10" to="0,620" dur="10s" repeatCount="indefinite" />
   </line>
 
-  <!-- LEFT PANEL: ASCII art & Cyber Symbol -->
-  <g transform="translate(50, 50)">
-    <!-- Card Frame with Border Shimmer -->
-    <rect width="380" height="510" rx="16" fill="#0F172A" fill-opacity="0.7" stroke="url(#border-grad)" stroke-width="1.5" />
+  <!-- ==================== LEFT SIDE: ASCII CYBER ART ==================== -->
+  <g transform="translate(45, 50)">
+    <!-- Main glass card -->
+    <rect width="390" height="510" rx="18" fill="#0F172A" fill-opacity="0.75" stroke="url(#border-grad)" stroke-width="1.5" />
     
-    <!-- Floating Cyber Terminal Icon Group -->
-    <g transform="translate(190, 240)">
-      <animateTransform attributeName="transform" type="translate" values="190,235; 190,245; 190,235" dur="6s" repeatCount="indefinite" />
+    <!-- Floating Cyber Mesh Structure -->
+    <g transform="translate(195, 240)">
+      <animateTransform attributeName="transform" type="translate" values="195,232; 195,248; 195,232" dur="6s" repeatCount="indefinite" />
       
-      <!-- Tech Logo / Matrix Shape -->
-      <path d="M-80,-110 L80,-110 L110,-50 L80,10 L-80,10 L-110,-50 Z" fill="none" stroke="url(#accent-grad)" stroke-width="2" opacity="0.85" filter="url(#glow-filter)" />
+      <!-- Outer Hexagon Matrix Glow -->
+      <path d="M -100,-120 L 100,-120 L 140,-40 L 100,40 L -100,40 L -140,-40 Z" fill="none" stroke="url(#cyber-grad)" stroke-width="1" stroke-dasharray="10 15" opacity="0.3" />
+      <path d="M -90,-110 L 90,-110 L 125,-40 L 90,30 L -90,30 L -125,-40 Z" fill="none" stroke="url(#cyber-grad)" stroke-width="2" opacity="0.8" filter="url(#neon-glow)" />
       
-      <!-- ASCII Cyber Face / Terminal Code Block -->
-      <text class="font-mono" font-size="14" fill="url(#ascii-grad)" text-anchor="middle" y="-70" xml:space="preserve">
-        <tspan x="0" dy="0">     ____________________     </tspan>
-        <tspan x="0" dy="16">    /  __  __  __  __  \    </tspan>
-        <tspan x="0" dy="16">   |  |  ||  ||  ||  |  |   </tspan>
-        <tspan x="0" dy="16">   |  |  ||_ ||_ ||  |  |   </tspan>
-        <tspan x="0" dy="16">   |  |__||__||__||__|  |   </tspan>
-        <tspan x="0" dy="16">   |                    |   </tspan>
-        <tspan x="0" dy="16">   |    [ SYSTEM: OK ]  |   </tspan>
-        <tspan x="0" dy="16">    \__________________/    </tspan>
-        <tspan x="0" dy="16">          ||      ||        </tspan>
-        <tspan x="0" dy="16">       _ _||______||_ _     </tspan>
-      </text>
+      <!-- Sequential Typing/Revealing Cyber Symbol -->
+      <g fill="url(#cyber-grad)">
+        <text class="font-mono" font-size="12" text-anchor="middle" y="-85" xml:space="preserve">
+          <tspan x="0" dy="0">      _/\_/\_      </tspan>
+          <tspan x="0" dy="16">   .-´       `-.   </tspan>
+          <tspan x="0" dy="16">  /  __     __  \  </tspan>
+          <tspan x="0" dy="16"> |  /  \   /  \  | </tspan>
+          <tspan x="0" dy="16"> |  \__/   \__/  | </tspan>
+          <tspan x="0" dy="16">  \     ___     /  </tspan>
+          <tspan x="0" dy="16">   `-._______.-´   </tspan>
+          <tspan x="0" dy="16">     /   |   \     </tspan>
+          <tspan x="0" dy="16">    /____|____\    </tspan>
+          <animate attributeName="opacity" values="0;0.3;1" dur="3s" fill="freeze" />
+        </text>
+      </g>
     </g>
 
-    <!-- Scanning Lines Overlay inside Left Panel -->
-    <rect width="380" height="510" rx="16" fill="none" stroke="none" clip-path="url(#left-clip)" />
-    <line x1="0" y1="0" x2="380" y2="0" stroke="#22D3EE" stroke-opacity="0.15" stroke-width="1.5">
-      <animateTransform attributeName="transform" type="translate" from="0,10" to="0,500" dur="4s" repeatCount="indefinite" />
-    </line>
+    <!-- Card Scanner Sweep -->
+    <g clip-path="url(#left-panel-clip)">
+      <rect x="0" y="0" width="390" height="6" fill="url(#cyber-grad)" opacity="0.4" filter="url(#subtle-glow)">
+        <animateTransform attributeName="transform" type="translate" from="0,-10" to="0,520" dur="5s" repeatCount="indefinite" />
+      </rect>
+    </g>
   </g>
 
-  <!-- RIGHT PANEL: Terminal Window -->
-  <g transform="translate(470, 50)">
-    <!-- Terminal Background with Blur effect -->
-    <rect width="660" height="510" rx="16" fill="#0F172A" fill-opacity="0.85" stroke="url(#border-grad)" stroke-width="1.5" />
+  <!-- ==================== RIGHT SIDE: PREMIUM TERMINAL ==================== -->
+  <g transform="translate(480, 50)">
+    <!-- Terminal Glass Card -->
+    <rect width="655" height="510" rx="18" fill="#0F172A" fill-opacity="0.85" stroke="url(#border-grad)" stroke-width="1.5" />
     
-    <!-- Terminal Window Header -->
-    <g transform="translate(20, 20)">
-      <!-- Window Controls (MacOS Style) -->
-      <circle cx="10" cy="10" r="6" fill="#EF4444" />
-      <circle cx="30" cy="10" r="6" fill="#F59E0B" />
-      <circle cx="50" cy="10" r="6" fill="#10B981" />
-      
-      <!-- Terminal Tab Title -->
-      <text class="font-mono" font-size="12" fill="#94A3B8" x="80" y="14">bash - regi25@cz</text>
+    <!-- Header bar -->
+    <g transform="translate(25, 20)">
+      <circle cx="10" cy="10" r="6" fill="#EF4444" opacity="0.9" />
+      <circle cx="30" cy="10" r="6" fill="#F59E0B" opacity="0.9" />
+      <circle cx="50" cy="10" r="6" fill="#10B981" opacity="0.9" />
+      <text class="font-mono" font-size="12" fill="#64748B" x="80" y="14">terminal - zsh - 80×24</text>
     </g>
-    
-    <line x1="0" y1="45" x2="660" y2="45" stroke="rgba(255,255,255,.08)" stroke-width="1" />
+    <line x1="0" y1="48" x2="655" y2="48" stroke="rgba(255,255,255,0.06)" stroke-width="1.5" />
 
-    <!-- Terminal Content Area -->
-    <g transform="translate(30, 80)">
+    <!-- Terminal Content -->
+    <g transform="translate(30, 85)">
+      <!-- Command input line -->
+      <text class="font-mono" font-size="15" fill="#64748B" x="0" y="15">
+        <tspan fill="#38BDF8">guest@regi25</tspan>:<tspan fill="#818CF8">~</tspan>$ whoami
+      </text>
       
-      <!-- Command: whoami -->
-      <text class="font-mono" font-size="16" fill="#94A3B8" x="0" y="15">> whoami</text>
+      <!-- Primary Profile Name -->
+      <text class="font-sans" font-weight="900" font-size="38" fill="#F8FAFC" x="0" y="58" letter-spacing="-1">Regina Iuldasheva</text>
       
-      <!-- Output: Regina Iuldasheva -->
-      <text class="font-sans" font-weight="800" font-size="34" fill="#F8FAFC" x="0" y="55">Regina Iuldasheva</text>
-      
-      <!-- Typing Animation Area -->
-      <g transform="translate(0, 95)">
-        <text class="font-mono" font-size="20" fill="url(#accent-grad)" font-weight="bold">
-          <tspan x="0" y="0">Frontend Engineer</tspan>
-          <animate attributeName="opacity" values="1;0;1" dur="3s" repeatCount="indefinite" />
+      <!-- PURE SVG NO-JS TYPING ANIMATION -->
+      <!-- We use discrete text switches inside SMIL to simulate real character-by-character typing! -->
+      <g transform="translate(0, 100)">
+        <text class="font-mono" font-size="20" font-weight="bold" fill="url(#cyber-grad)">
+          <animate attributeName="opacity" values="1;1;0" keyTimes="0;0.95;1" dur="15s" repeatCount="indefinite" />
+          
+          <!-- State 1: Typing "Frontend Engineer" -->
+          <tspan x="0" y="0">
+            <animate attributeName="dx" values="0" dur="15s" repeatCount="indefinite" />
+            <animate attributeName="visibility" values="visible;hidden" keyTimes="0;0.33" dur="15s" repeatCount="indefinite" />
+            F<animate attributeName="textContent" values="F;Fr;Fro;Fron;Front;Fronte;Frontend;Frontend ;Frontend E;Frontend En;Frontend Eng;Frontend Engi;Frontend Engin;Frontend Engine;Frontend Enginee;Frontend Engineer" dur="5s" repeatCount="indefinite" />
+          </tspan>
+          
+          <!-- State 2: Typing "React Developer" -->
+          <tspan x="0" y="0">
+            <animate attributeName="visibility" values="hidden;visible;hidden" keyTimes="0;0.33;0.66" dur="15s" repeatCount="indefinite" />
+            R<animate attributeName="textContent" values="R;Re;Rea;Reac;React;React ;React D;React De;React Dev;React Deve;React Devel;React Develo;React Develop;React Develope;React Developer" dur="5s" repeatCount="indefinite" />
+          </tspan>
+
+          <!-- State 3: Typing "AI Explorer" -->
+          <tspan x="0" y="0">
+            <animate attributeName="visibility" values="hidden;visible" keyTimes="0;0.66" dur="15s" repeatCount="indefinite" />
+            A<animate attributeName="textContent" values="A;AI;AI ;AI E;AI Ex;AI Exp;AI Expl;AI Explo;AI Explor;AI Explore;AI Explorer" dur="5s" repeatCount="indefinite" />
+          </tspan>
         </text>
-        <!-- Blinking Cursor -->
-        <rect x="210" y="-16" width="10" height="20" fill="#22D3EE">
+        
+        <!-- Blinking Cursor following the width of text -->
+        <rect width="10" height="22" fill="#22D3EE" y="-18">
           <animate attributeName="opacity" values="1;0;1" dur="0.8s" repeatCount="indefinite" />
+          <!-- Move cursor position synchronously with the text state -->
+          <animateTransform attributeName="transform" type="translate" values="215,0; 185,0; 135,0; 215,0" keyTimes="0;0.33;0.66;1" dur="15s" repeatCount="indefinite" />
         </rect>
       </g>
 
-      <!-- Terminal Stats: whoami metadata block -->
-      <g transform="translate(0, 135)" class="font-mono" font-size="14">
+      <!-- Interactive Sequential Info Reveal -->
+      <g transform="translate(0, 140)" class="font-mono" font-size="14" opacity="0">
+        <animate attributeName="opacity" from="0" to="1" begin="1s" dur="1.5s" fill="freeze" />
+        
         <!-- Location -->
         <g transform="translate(0, 0)">
-          <text fill="#10B981" x="0" y="15">📍 Location:</text>
-          <text fill="#F8FAFC" x="140" y="15">Czech Republic, České Budějovice</text>
+          <text fill="#10B981" font-weight="bold" x="0" y="15">📍 Location:</text>
+          <text fill="#E2E8F0" x="130" y="15">Czech Republic, České Budějovice</text>
         </g>
-        <!-- Currently Building -->
-        <g transform="translate(0, 25)">
-          <text fill="#22D3EE" x="0" y="15">🛠️ Building:</text>
-          <text fill="#F8FAFC" x="140" y="15">AI Platforms &amp; Modern Web Architectures</text>
+        <!-- Building -->
+        <g transform="translate(0, 26)">
+          <text fill="#22D3EE" font-weight="bold" x="0" y="15">🛠️ Building:</text>
+          <text fill="#E2E8F0" x="130" y="15">Modern Frontends &amp; AI Integrations</text>
         </g>
-        <!-- GitHub Link -->
-        <g transform="translate(0, 50)">
-          <text fill="#7C3AED" x="0" y="15">🐙 GitHub:</text>
-          <text fill="#22D3EE" x="140" y="15">github.com/Regi25</text>
+        <!-- GitHub -->
+        <g transform="translate(0, 52)">
+          <text fill="#7C3AED" font-weight="bold" x="0" y="15">🐙 GitHub:</text>
+          <text fill="#38BDF8" x="130" y="15">github.com/Regi25</text>
         </g>
-        <!-- Portfolio Link -->
-        <g transform="translate(0, 75)">
-          <text fill="#7C3AED" x="0" y="15">🌐 Portfolio:</text>
-          <text fill="#22D3EE" x="140" y="15">my-profile-psi-nine.vercel.app</text>
+        <!-- Portfolio -->
+        <g transform="translate(0, 78)">
+          <text fill="#7C3AED" font-weight="bold" x="0" y="15">🌐 Portfolio:</text>
+          <text fill="#38BDF8" x="130" y="15">my-profile-psi-nine.vercel.app</text>
         </g>
       </g>
 
-      <!-- Skills Section -->
-      <g transform="translate(0, 270)">
-        <text class="font-mono" font-size="12" fill="#94A3B8" x="0" y="0">CONFIGURED_SKILLS_SET:</text>
+      <!-- ==================== SKILLS AREA ==================== -->
+      <g transform="translate(0, 275)" opacity="0">
+        <animate attributeName="opacity" from="0" to="1" begin="1.8s" dur="1.5s" fill="freeze" />
+        <text class="font-mono" font-size="12" fill="#64748B" x="0" y="0">CONFIGURED_TECH_STACK:</text>
         
-        <!-- Skill Pills Grid -->
         <g transform="translate(0, 15)">
           <!-- Row 1 -->
           <g transform="translate(0, 0)">
-            <rect class="skill-pill" x="0" y="0" width="80" height="30" rx="8" />
-            <text class="font-sans skill-text" font-size="12" x="40" y="19" text-anchor="middle">React</text>
-            
-            <rect class="skill-pill" x="90" y="0" width="85" height="30" rx="8" />
-            <text class="font-sans skill-text" font-size="12" x="132.5" y="19" text-anchor="middle">Next.js</text>
-            
-            <rect class="skill-pill" x="185" y="0" width="105" height="30" rx="8" />
-            <text class="font-sans skill-text" font-size="12" x="237.5" y="19" text-anchor="middle">TypeScript</text>
-
-            <rect class="skill-pill" x="300" y="0" width="100" height="30" rx="8" />
-            <text class="font-sans skill-text" font-size="12" x="350" y="19" text-anchor="middle">Tailwind</text>
-
-            <rect class="skill-pill" x="410" y="0" width="80" height="30" rx="8" />
-            <text class="font-sans skill-text" font-size="12" x="450" y="19" text-anchor="middle">Zustand</text>
+            <g transform="translate(0,0)"><rect class="skill-pill" width="75" height="30" rx="8" /><text class="font-sans skill-text" font-size="12" x="37.5" y="19" text-anchor="middle">React</text></g>
+            <g transform="translate(85,0)"><rect class="skill-pill" width="80" height="30" rx="8" /><text class="font-sans skill-text" font-size="12" x="40" y="19" text-anchor="middle">Next.js</text></g>
+            <g transform="translate(175,0)"><rect class="skill-pill" width="105" height="30" rx="8" /><text class="font-sans skill-text" font-size="12" x="52.5" y="19" text-anchor="middle">TypeScript</text></g>
+            <g transform="translate(290,0)"><rect class="skill-pill" width="85" height="30" rx="8" /><text class="font-sans skill-text" font-size="12" x="42.5" y="19" text-anchor="middle">Tailwind</text></g>
+            <g transform="translate(385,0)"><rect class="skill-pill" width="80" height="30" rx="8" /><text class="font-sans skill-text" font-size="12" x="40" y="19" text-anchor="middle">Zustand</text></g>
           </g>
 
           <!-- Row 2 -->
           <g transform="translate(0, 42)">
-            <rect class="skill-pill" x="0" y="0" width="80" height="30" rx="8" />
-            <text class="font-sans skill-text" font-size="12" x="40" y="19" text-anchor="middle">Node.js</text>
-            
-            <rect class="skill-pill" x="90" y="0" width="85" height="30" rx="8" />
-            <text class="font-sans skill-text" font-size="12" x="132.5" y="19" text-anchor="middle">Postgres</text>
-            
-            <rect class="skill-pill" x="185" y="0" width="80" height="30" rx="8" />
-            <text class="font-sans skill-text" font-size="12" x="225" y="19" text-anchor="middle">Docker</text>
-
-            <rect class="skill-pill" x="275" y="0" width="65" height="30" rx="8" />
-            <text class="font-sans skill-text" font-size="12" x="307.5" y="19" text-anchor="middle">Git</text>
-
-            <rect class="skill-pill" x="350" y="0" width="80" height="30" rx="8" />
-            <text class="font-sans skill-text" font-size="12" x="390" y="19" text-anchor="middle">Figma</text>
+            <g transform="translate(0,0)"><rect class="skill-pill" width="80" height="30" rx="8" /><text class="font-sans skill-text" font-size="12" x="40" y="19" text-anchor="middle">Node.js</text></g>
+            <g transform="translate(90,0)"><rect class="skill-pill" width="85" height="30" rx="8" /><text class="font-sans skill-text" font-size="12" x="42.5" y="19" text-anchor="middle">Postgres</text></g>
+            <g transform="translate(185,0)"><rect class="skill-pill" width="75" height="30" rx="8" /><text class="font-sans skill-text" font-size="12" x="37.5" y="19" text-anchor="middle">Docker</text></g>
+            <g transform="translate(270,0)"><rect class="skill-pill" width="60" height="30" rx="8" /><text class="font-sans skill-text" font-size="12" x="30" y="19" text-anchor="middle">Git</text></g>
+            <g transform="translate(340,0)"><rect class="skill-pill" width="75" height="30" rx="8" /><text class="font-sans skill-text" font-size="12" x="37.5" y="19" text-anchor="middle">Figma</text></g>
           </g>
         </g>
       </g>
 
-      <!-- Bottom Social Row -->
-      <g transform="translate(0, 380)">
-        <!-- GitHub Icon Button -->
+      <!-- ==================== SOCIAL / BOTTOM FOOTER ==================== -->
+      <g transform="translate(0, 385)" opacity="0">
+        <animate attributeName="opacity" from="0" to="1" begin="2.5s" dur="1.5s" fill="freeze" />
+        
+        <!-- GitHub Button -->
         <g transform="translate(0, 0)">
-          <circle cx="15" cy="15" r="15" fill="#1E293B" stroke="rgba(255,255,255,0.08)" />
-          <path d="M15,5 C9.48,5 5,9.48 5,15 C5,19.42 7.87,23.17 11.84,24.5 C12.34,24.59 12.52,24.28 12.52,24.02 C12.52,23.78 12.51,22.95 12.5,22.09 C9.72,22.69 9.13,20.75 9.13,20.75 C8.68,19.59 8.02,19.28 8.02,19.28 C7.11,18.66 8.09,18.67 8.09,18.67 C9.1,18.74 9.63,19.71 9.63,19.71 C10.53,21.25 11.98,20.8 12.55,20.55 C12.64,19.9 12.9,19.46 13.19,19.21 C10.97,18.96 8.64,18.1 8.64,14.27 C8.64,13.18 9.03,12.29 9.67,11.59 C9.57,11.34 9.23,10.32 9.77,8.94 C9.77,8.94 10.61,8.67 12.52,9.96 C13.32,9.74 14.18,9.63 15,9.63 C15.82,9.63 16.68,9.74 17.48,9.96 C19.39,8.67 20.23,8.94 20.23,8.94 C20.77,10.32 20.43,11.34 20.33,11.59 C20.97,12.29 21.36,13.18 21.36,14.27 C21.36,18.11 19.03,18.95 16.8,19.2 C17.16,19.51 17.48,20.13 17.48,21.08 C17.48,22.44 17.47,23.54 17.47,23.87 C17.47,24.14 17.65,24.45 18.16,24.35 C22.13,23.02 25,19.27 25,14.85 C25,9.48 20.52,5 15,5 Z" fill="#94A3B8" />
+          <rect class="social-btn" width="32" height="32" rx="10" />
+          <path class="social-icon" d="M16,7 C11.03,7 7,11.03 7,16 C7,19.97 9.58,23.35 13.15,24.54 C13.6,24.62 13.76,24.35 13.76,24.11 C13.76,23.9 13.75,23.15 13.75,22.38 C11.25,22.92 10.72,21.18 10.72,21.18 C10.31,20.14 9.72,19.86 9.72,19.86 C8.9,19.3 9.78,19.31 9.78,19.31 C10.69,19.37 11.17,20.24 11.17,20.24 C11.98,21.62 13.29,21.22 13.8,21 C13.88,20.41 14.12,20.01 14.38,19.79 C12.38,19.56 10.28,18.79 10.28,15.34 C10.28,14.36 10.63,13.56 11.21,12.93 C11.12,12.71 10.81,11.79 11.3,10.55 C11.3,10.55 12.05,10.31 13.77,11.47 C14.49,11.27 15.26,11.17 16,11.17 C16.74,11.17 17.51,11.27 18.23,11.47 C19.95,10.31 20.7,10.55 20.7,10.55 C21.19,11.79 20.88,12.71 20.79,12.93 C21.37,13.56 21.72,14.36 21.72,15.34 C21.72,18.8 19.62,19.56 17.61,19.78 C17.93,20.06 18.22,20.62 18.22,21.48 C18.22,22.7 18.21,23.7 18.21,24 C18.21,24.25 18.37,24.53 18.83,24.44 C22.41,23.24 25,19.87 25,15.9 C25,10.93 20.97,7 16,7 Z" />
         </g>
         
-        <!-- LinkedIn Icon Button -->
+        <!-- LinkedIn Button -->
         <g transform="translate(45, 0)">
-          <circle cx="15" cy="15" r="15" fill="#1E293B" stroke="rgba(255,255,255,0.08)" />
-          <path d="M10,11 H13 V12.5 H13.1 C13.5,11.7 14.5,11 16,11 C19,11 20,12.5 20,15.5 V21 H17 V16 C17,14.5 16.5,13.5 15,13.5 C13.8,13.5 13,14.3 13,15.5 V21 H10 V11 Z M6,7.5 C6,6.7 6.7,6 7.5,6 C8.3,6 9,6.7 9,7.5 C9,8.3 8.3,9 7.5,9 C6.7,9 6,8.3 6,7.5 Z M6,11 H9 V21 H6 V11 Z" fill="#94A3B8" />
+          <rect class="social-btn" width="32" height="32" rx="10" />
+          <path class="social-icon" d="M12,13 H14.5 V14.5 H14.55 C14.9,13.8 15.8,13 17.2,13 C20,13 21,14.5 21,17.2 V22 H18 V17.5 C18,16.2 17.5,15.2 16,15.2 C14.8,15.2 14,16 14,17.2 V22 H11 V13 Z M8,9.5 C8,8.7 8.7,8 9.5,8 C10.3,8 11,8.7 11,9.5 C11,10.3 10.3,11 9.5,11 C8.7,11 8,10.3 8,9.5 Z M8,13 H11 V22 H8 V13 Z" />
         </g>
 
-        <!-- Dynamic Connection Line indicating "Ready" status -->
-        <g transform="translate(100, 7)" class="font-mono" font-size="11">
-          <text fill="#10B981" x="0" y="10">● SYSTEM_STABLE_ONLINE</text>
+        <!-- Status Dot Indicating Online state -->
+        <g transform="translate(95, 7)" class="font-mono" font-size="12">
+          <circle cx="10" cy="5" r="4" fill="#10B981" filter="url(#subtle-glow)">
+            <animate attributeName="opacity" values="0.4;1;0.4" dur="2s" repeatCount="indefinite" />
+          </circle>
+          <text fill="#10B981" x="22" y="9">SYSTEM_ONLINE</text>
         </g>
       </g>
     </g>
   </g>
 </svg>
+
