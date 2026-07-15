@@ -71,7 +71,7 @@
   <rect width="1180" height="610" rx="24" fill="url(#bg-glow-2)" />
   <rect width="1180" height="610" rx="24" fill="url(#bg-glow-3)" />
 
-  <!-- 40 Tiny Cinematic Floating Particles -->
+  <!-- Tiny Cinematic Floating Particles -->
   <g opacity="0.4">
     <circle cx="120" cy="180" r="1" fill="#7C3AED"><animate attributeName="opacity" values="0.2;1;0.2" dur="3s" repeatCount="indefinite" /></circle>
     <circle cx="280" cy="80" r="1.5" fill="#22D3EE"><animate attributeName="opacity" values="0.8;0.2;0.8" dur="4s" repeatCount="indefinite" /></circle>
@@ -157,7 +157,7 @@
       <g transform="translate(0, 205)" class="font-mono" font-size="12">
         <g opacity="0"><animate attributeName="opacity" to="1" begin="7.5s" fill="freeze" /><text fill="#F472B6" x="0" y="15">const<tspan fill="#F8FAFC"> developer = {</tspan></text></g>
         <g opacity="0"><animate attributeName="opacity" to="1" begin="8.2s" fill="freeze" /><text fill="#F472B6" x="15" y="32">name<tspan fill="#94A3B8">:</tspan> <tspan fill="#38BDF8">"Regina"</tspan><tspan fill="#F8FAFC">,</tspan></text></g>
-        <g opacity="0"><animate attributeName="opacity" to="1" begin="8.9s" fill="freeze" /><text fill="#F472B6" x="15" y="49">role<tspan fill="#38BDF8">"Frontend Engineer"</tspan><tspan fill="#F8FAFC">,</tspan></text></g>
+        <g opacity="0"><animate attributeName="opacity" to="1" begin="8.9s" fill="freeze" /><text fill="#F472B6" x="15" y="49">role<tspan fill="#94A3B8">:</tspan> <tspan fill="#38BDF8">"Frontend Engineer"</tspan><tspan fill="#F8FAFC">,</tspan></text></g>
         <g opacity="0"><animate attributeName="opacity" to="1" begin="9.6s" fill="freeze" /><text fill="#F472B6" x="15" y="66">location<tspan fill="#94A3B8">:</tspan> <tspan fill="#38BDF8">"Czech Republic"</tspan><tspan fill="#F8FAFC">,</tspan></text></g>
         <g opacity="0"><animate attributeName="opacity" to="1" begin="10.3s" fill="freeze" /><text fill="#F472B6" x="15" y="83">stack<tspan fill="#94A3B8">:</tspan> <tspan fill="#A78BFA">[</tspan><tspan fill="#34D399">"React"</tspan><tspan fill="#F8FAFC">, </tspan><tspan fill="#34D399">"Next.js"</tspan><tspan fill="#A78BFA">]</tspan></text></g>
         <g opacity="0"><animate attributeName="opacity" to="1" begin="11.0s" fill="freeze" /><text fill="#F8FAFC" x="0" y="100">};</text></g>
@@ -198,24 +198,23 @@
       <!-- Name and Identity -->
       <text class="font-sans" font-weight="900" font-size="34" fill="#F8FAFC" x="0" y="32" letter-spacing="-1">Regina Iuldasheva</text>
       
-      <!-- Philosophy typing slider (Updated to reflect actual values) -->
+      <!-- ULTRA-STABLE FADE-IN/OUT SLIDER -->
       <g transform="translate(0, 60)">
-        <text class="font-mono" font-size="15" font-weight="bold" fill="url(#cyber-grad)">
-          <animate attributeName="opacity" values="1;1;0" keyTimes="0;0.95;1" dur="15s" repeatCount="indefinite" />
-          
-          <tspan x="0" y="0">
-            <animate attributeName="visibility" values="visible;hidden" keyTimes="0;0.33" dur="15s" repeatCount="indefinite" />
-            Building modern React applications_
-          </tspan>
-          <tspan x="0" y="0">
-            <animate attributeName="visibility" values="hidden;visible;hidden" keyTimes="0;0.33;0.66" dur="15s" repeatCount="indefinite" />
-            Crafting responsive web experiences_
-          </tspan>
-          <tspan x="0" y="0">
-            <animate attributeName="visibility" values="hidden;visible" keyTimes="0;0.66" dur="15s" repeatCount="indefinite" />
-            React • Next.js • Tailwind CSS_
-          </tspan>
-        </text>
+        <!-- Slide 1: React apps -->
+        <g opacity="0">
+          <animate attributeName="opacity" values="0;1;1;0;0" keyTimes="0;0.1;0.33;0.43;1" dur="15s" repeatCount="indefinite" />
+          <text class="font-mono" font-size="15" font-weight="bold" fill="url(#cyber-grad)" x="0" y="0">Building modern React applications_</text>
+        </g>
+        <!-- Slide 2: Web experiences -->
+        <g opacity="0">
+          <animate attributeName="opacity" values="0;0;1;1;0;0" keyTimes="0;0.33;0.43;0.66;0.76;1" dur="15s" repeatCount="indefinite" />
+          <text class="font-mono" font-size="15" font-weight="bold" fill="url(#cyber-grad)" x="0" y="0">Crafting responsive web experiences_</text>
+        </g>
+        <!-- Slide 3: Tech stack -->
+        <g opacity="0">
+          <animate attributeName="opacity" values="0;0;1;1;0" keyTimes="0;0.66;0.76;0.95;1" dur="15s" repeatCount="indefinite" />
+          <text class="font-mono" font-size="15" font-weight="bold" fill="url(#cyber-grad)" x="0" y="0">React • Next.js • Tailwind CSS_</text>
+        </g>
       </g>
 
       <!-- Horizontal Divider -->
@@ -336,6 +335,7 @@
     </g>
   </g>
 </svg>
+
 
 
 
