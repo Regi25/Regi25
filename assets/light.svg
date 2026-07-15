@@ -1,198 +1,208 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1180 610" width="100%" height="100%">
   <defs>
-    <!-- Background Soft Glows -->
-    <radialGradient id="bg-glow-1" cx="20%" cy="30%" r="50%">
+    <!-- Soft Pastel Radial Glows -->
+    <radialGradient id="bg-glow-1" cx="15%" cy="20%" r="60%">
       <stop offset="0%" stop-color="#3B82F6" stop-opacity="0.08" />
       <stop offset="100%" stop-color="#FFFFFF" stop-opacity="0" />
     </radialGradient>
-    <radialGradient id="bg-glow-2" cx="80%" cy="80%" r="60%">
+    <radialGradient id="bg-glow-2" cx="85%" cy="80%" r="65%">
       <stop offset="0%" stop-color="#06B6D4" stop-opacity="0.08" />
       <stop offset="100%" stop-color="#FFFFFF" stop-opacity="0" />
     </radialGradient>
     
-    <!-- Accent Light Gradients -->
-    <linearGradient id="accent-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+    <!-- Moving Blue-Cyan Light Gradient -->
+    <linearGradient id="cyber-grad" x1="0%" y1="0%" x2="100%" y2="100%">
       <stop offset="0%" stop-color="#2563EB">
-        <animate attributeName="stop-color" values="#2563EB;#06B6D4;#10B981;#2563EB" dur="10s" repeatCount="indefinite" />
+        <animate attributeName="stop-color" values="#2563EB;#06B6D4;#10B981;#2563EB" dur="8s" repeatCount="indefinite" />
       </stop>
       <stop offset="50%" stop-color="#06B6D4">
-        <animate attributeName="stop-color" values="#06B6D4;#10B981;#2563EB;#06B6D4" dur="10s" repeatCount="indefinite" />
+        <animate attributeName="stop-color" values="#06B6D4;#10B981;#2563EB;#06B6D4" dur="8s" repeatCount="indefinite" />
       </stop>
       <stop offset="100%" stop-color="#10B981">
-        <animate attributeName="stop-color" values="#10B981;#2563EB;#06B6D4;#10B981" dur="10s" repeatCount="indefinite" />
+        <animate attributeName="stop-color" values="#10B981;#2563EB;#06B6D4;#10B981" dur="8s" repeatCount="indefinite" />
       </stop>
-    </linearGradient>
-
-    <linearGradient id="ascii-grad" x1="0%" y1="0%" x2="0%" y2="100%">
-      <stop offset="0%" stop-color="#2563EB" />
-      <stop offset="100%" stop-color="#06B6D4" />
     </linearGradient>
 
     <linearGradient id="border-grad" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" stop-color="#0F172A" stop-opacity="0.08" />
-      <stop offset="50%" stop-color="#0F172A" stop-opacity="0.03" />
-      <stop offset="100%" stop-color="#0F172A" stop-opacity="0.06" />
+      <stop offset="0%" stop-color="#0F172A" stop-opacity="0.1" />
+      <stop offset="50%" stop-color="#0F172A" stop-opacity="0.02" />
+      <stop offset="100%" stop-color="#2563EB" stop-opacity="0.12" />
     </linearGradient>
     
-    <filter id="soft-shadow" x="-10%" y="-10%" width="120%" height="120%">
-      <feDropShadow dx="0" dy="4" stdDeviation="12" flood-color="#0F172A" flood-opacity="0.04" />
+    <filter id="glass-shadow" x="-10%" y="-10%" width="120%" height="120%">
+      <feDropShadow dx="0" dy="6" stdDeviation="15" flood-color="#0F172A" flood-opacity="0.04" />
     </filter>
   </defs>
 
   <style>
-    .font-mono { font-family: 'Fira Code', 'Courier New', Courier, monospace; }
+    .font-mono { font-family: 'Fira Code', 'JetBrains Mono', 'Courier New', monospace; }
     .font-sans { font-family: 'Inter', 'SF Pro Display', -apple-system, sans-serif; }
     
-    /* CSS Pulse / Hover transitions for Light Mode */
-    .skill-pill { fill: #F8FAFC; stroke: rgba(15,23,42,0.08); transition: all 0.3s ease; cursor: pointer; }
-    .skill-pill:hover { fill: #EDF2F7; stroke: #2563EB; }
-    .skill-text { fill: #475569; transition: fill 0.3s ease; }
+    /* Interactive Light Mode Hover Effects */
+    .skill-pill { fill: #F8FAFC; stroke: rgba(15,23,42,0.08); transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1); cursor: pointer; }
+    .skill-pill:hover { fill: #F1F5F9; stroke: #2563EB; transform: scale(1.05); }
+    .skill-text { fill: #475569; transition: fill 0.3s ease; pointer-events: none; }
     .skill-pill:hover + .skill-text, .skill-text:hover { fill: #0F172A; }
+    
+    .social-btn { fill: #F8FAFC; stroke: rgba(15,23,42,0.08); transition: all 0.3s ease; }
+    .social-btn:hover { fill: #F1F5F9; stroke: #2563EB; }
+    .social-icon { fill: #475569; transition: fill 0.3s ease; }
+    .social-btn:hover + .social-icon, .social-icon:hover { fill: #0F172A; }
   </style>
 
-  <!-- Canvas Background (Pure Light Mode) -->
+  <!-- Clean Canvas Background -->
   <rect width="1180" height="610" rx="24" fill="#FFFFFF" />
   <rect width="1180" height="610" rx="24" fill="url(#bg-glow-1)" />
   <rect width="1180" height="610" rx="24" fill="url(#bg-glow-2)" />
 
-  <!-- Animated Background Soft Particles -->
-  <g opacity="0.4">
-    <circle cx="100" cy="150" r="1.5" fill="#2563EB">
-      <animate attributeName="opacity" values="0.1;0.6;0.1" dur="4s" repeatCount="indefinite" />
-    </circle>
-    <circle cx="1080" cy="200" r="2" fill="#06B6D4">
-      <animate attributeName="opacity" values="0.6;0.1;0.6" dur="5s" repeatCount="indefinite" />
-    </circle>
-  </g>
+  <!-- Moving Global Scanline -->
+  <line x1="0" y1="0" x2="1180" y2="0" stroke="#000000" stroke-opacity="0.008" stroke-width="2">
+    <animateTransform attributeName="transform" type="translate" from="0,-10" to="0,620" dur="10s" repeatCount="indefinite" />
+  </line>
 
-  <!-- LEFT PANEL: Light Mode ASCII / Cyber Logo -->
-  <g transform="translate(50, 50)" filter="url(#soft-shadow)">
-    <rect width="380" height="510" rx="16" fill="#F8FAFC" stroke="url(#border-grad)" stroke-width="1.5" />
+  <!-- ==================== LEFT SIDE: ASCII CYBER ART ==================== -->
+  <g transform="translate(45, 50)" filter="url(#glass-shadow)">
+    <rect width="390" height="510" rx="18" fill="#F8FAFC" fill-opacity="0.85" stroke="url(#border-grad)" stroke-width="1.5" />
     
-    <g transform="translate(190, 240)">
-      <animateTransform attributeName="transform" type="translate" values="190,235; 190,245; 190,235" dur="6s" repeatCount="indefinite" />
-      <path d="M-80,-110 L80,-110 L110,-50 L80,10 L-80,10 L-110,-50 Z" fill="none" stroke="url(#accent-grad)" stroke-width="1.5" opacity="0.6" />
+    <g transform="translate(195, 240)">
+      <animateTransform attributeName="transform" type="translate" values="195,232; 195,248; 195,232" dur="6s" repeatCount="indefinite" />
       
-      <text class="font-mono" font-size="14" fill="url(#ascii-grad)" text-anchor="middle" y="-70" xml:space="preserve">
-        <tspan x="0" dy="0">     ____________________     </tspan>
-        <tspan x="0" dy="16">    /  __  __  __  __  \    </tspan>
-        <tspan x="0" dy="16">   |  |  ||  ||  ||  |  |   </tspan>
-        <tspan x="0" dy="16">   |  |  ||_ ||_ ||  |  |   </tspan>
-        <tspan x="0" dy="16">   |  |__||__||__||__|  |   </tspan>
-        <tspan x="0" dy="16">   |                    |   </tspan>
-        <tspan x="0" dy="16">   |    [ SYSTEM: OK ]  |   </tspan>
-        <tspan x="0" dy="16">    \__________________/    </tspan>
-        <tspan x="0" dy="16">          ||      ||        </tspan>
-        <tspan x="0" dy="16">       _ _||______||_ _     </tspan>
-      </text>
-    </g>
-  </g>
-
-  <!-- RIGHT PANEL: Terminal Window (Light Mode) -->
-  <g transform="translate(470, 50)" filter="url(#soft-shadow)">
-    <rect width="660" height="510" rx="16" fill="#F8FAFC" stroke="url(#border-grad)" stroke-width="1.5" />
-    
-    <g transform="translate(20, 20)">
-      <circle cx="10" cy="10" r="6" fill="#EF4444" />
-      <circle cx="30" cy="10" r="6" fill="#F59E0B" />
-      <circle cx="50" cy="10" r="6" fill="#10B981" />
-      <text class="font-mono" font-size="12" fill="#475569" x="80" y="14">bash - regi25@cz</text>
-    </g>
-    
-    <line x1="0" y1="45" x2="660" y2="45" stroke="rgba(15,23,42,0.06)" stroke-width="1" />
-
-    <g transform="translate(30, 80)">
-      <text class="font-mono" font-size="16" fill="#475569" x="0" y="15">> whoami</text>
-      <text class="font-sans" font-weight="800" font-size="34" fill="#0F172A" x="0" y="55">Regina Iuldasheva</text>
+      <path d="M -100,-120 L 100,-120 L 140,-40 L 100,40 L -100,40 L -140,-40 Z" fill="none" stroke="url(#cyber-grad)" stroke-width="1.5" stroke-dasharray="8 12" opacity="0.3" />
+      <path d="M -90,-110 L 90,-110 L 125,-40 L 90,30 L -90,30 L -125,-40 Z" fill="none" stroke="url(#cyber-grad)" stroke-width="1.5" opacity="0.6" />
       
-      <g transform="translate(0, 95)">
-        <text class="font-mono" font-size="20" fill="url(#accent-grad)" font-weight="bold">
-          <tspan x="0" y="0">Frontend Engineer</tspan>
-          <animate attributeName="opacity" values="1;0;1" dur="3s" repeatCount="indefinite" />
+      <g fill="url(#cyber-grad)">
+        <text class="font-mono" font-size="12" text-anchor="middle" y="-85" xml:space="preserve">
+          <tspan x="0" dy="0">      _/\_/\_      </tspan>
+          <tspan x="0" dy="16">   .-´       `-.   </tspan>
+          <tspan x="0" dy="16">  /  __     __  \  </tspan>
+          <tspan x="0" dy="16"> |  /  \   /  \  | </tspan>
+          <tspan x="0" dy="16"> |  \__/   \__/  | </tspan>
+          <tspan x="0" dy="16">  \     ___     /  </tspan>
+          <tspan x="0" dy="16">   `-._______.-´   </tspan>
+          <tspan x="0" dy="16">     /   |   \     </tspan>
+          <tspan x="0" dy="16">    /____|____\    </tspan>
+          <animate attributeName="opacity" values="0;0.3;1" dur="3s" fill="freeze" />
         </text>
-        <rect x="210" y="-16" width="10" height="20" fill="#2563EB">
+      </g>
+    </g>
+  </g>
+
+  <!-- ==================== RIGHT SIDE: PREMIUM TERMINAL ==================== -->
+  <g transform="translate(480, 50)" filter="url(#glass-shadow)">
+    <rect width="655" height="510" rx="18" fill="#F8FAFC" fill-opacity="0.9" stroke="url(#border-grad)" stroke-width="1.5" />
+    
+    <g transform="translate(25, 20)">
+      <circle cx="10" cy="10" r="6" fill="#EF4444" opacity="0.8" />
+      <circle cx="30" cy="10" r="6" fill="#F59E0B" opacity="0.8" />
+      <circle cx="50" cy="10" r="6" fill="#10B981" opacity="0.8" />
+      <text class="font-mono" font-size="12" fill="#475569" x="80" y="14">terminal - zsh - 80×24</text>
+    </g>
+    <line x1="0" y1="48" x2="655" y2="48" stroke="rgba(15,23,42,0.04)" stroke-width="1.5" />
+
+    <g transform="translate(30, 85)">
+      <text class="font-mono" font-size="15" fill="#475569" x="0" y="15">
+        <tspan fill="#1D4ED8">guest@regi25</tspan>:<tspan fill="#4338CA">~</tspan>$ whoami
+      </text>
+      
+      <text class="font-sans" font-weight="900" font-size="38" fill="#0F172A" x="0" y="58" letter-spacing="-1">Regina Iuldasheva</text>
+      
+      <!-- PURE SVG TYPING ANIMATION (LIGHT MODE) -->
+      <g transform="translate(0, 100)">
+        <text class="font-mono" font-size="20" font-weight="bold" fill="url(#cyber-grad)">
+          <animate attributeName="opacity" values="1;1;0" keyTimes="0;0.95;1" dur="15s" repeatCount="indefinite" />
+          
+          <tspan x="0" y="0">
+            <animate attributeName="dx" values="0" dur="15s" repeatCount="indefinite" />
+            <animate attributeName="visibility" values="visible;hidden" keyTimes="0;0.33" dur="15s" repeatCount="indefinite" />
+            F<animate attributeName="textContent" values="F;Fr;Fro;Fron;Front;Fronte;Frontend;Frontend ;Frontend E;Frontend En;Frontend Eng;Frontend Engi;Frontend Engin;Frontend Engine;Frontend Enginee;Frontend Engineer" dur="5s" repeatCount="indefinite" />
+          </tspan>
+          
+          <tspan x="0" y="0">
+            <animate attributeName="visibility" values="hidden;visible;hidden" keyTimes="0;0.33;0.66" dur="15s" repeatCount="indefinite" />
+            R<animate attributeName="textContent" values="R;Re;Rea;Reac;React;React ;React D;React De;React Dev;React Deve;React Devel;React Develo;React Develop;React Develope;React Developer" dur="5s" repeatCount="indefinite" />
+          </tspan>
+
+          <tspan x="0" y="0">
+            <animate attributeName="visibility" values="hidden;visible" keyTimes="0;0.66" dur="15s" repeatCount="indefinite" />
+            A<animate attributeName="textContent" values="A;AI;AI ;AI E;AI Ex;AI Exp;AI Expl;AI Explo;AI Explor;AI Explore;AI Explorer" dur="5s" repeatCount="indefinite" />
+          </tspan>
+        </text>
+        
+        <rect width="10" height="22" fill="#2563EB" y="-18">
           <animate attributeName="opacity" values="1;0;1" dur="0.8s" repeatCount="indefinite" />
+          <animateTransform attributeName="transform" type="translate" values="215,0; 185,0; 135,0; 215,0" keyTimes="0;0.33;0.66;1" dur="15s" repeatCount="indefinite" />
         </rect>
       </g>
 
-      <!-- Stats Block -->
-      <g transform="translate(0, 135)" class="font-mono" font-size="14">
+      <!-- Sequential Info Reveal -->
+      <g transform="translate(0, 140)" class="font-mono" font-size="14" opacity="0">
+        <animate attributeName="opacity" values="0;1" keyTimes="0;1" begin="1s" dur="1.5s" fill="freeze" />
+        
         <g transform="translate(0, 0)">
-          <text fill="#10B981" x="0" y="15">📍 Location:</text>
-          <text fill="#0F172A" x="140" y="15">Czech Republic, České Budějovice</text>
+          <text fill="#10B981" font-weight="bold" x="0" y="15">📍 Location:</text>
+          <text fill="#334155" x="130" y="15">Czech Republic, České Budějovice</text>
         </g>
-        <g transform="translate(0, 25)">
-          <text fill="#06B6D4" x="0" y="15">🛠️ Building:</text>
-          <text fill="#0F172A" x="140" y="15">AI Platforms &amp; Modern Web Architectures</text>
+        <g transform="translate(0, 26)">
+          <text fill="#06B6D4" font-weight="bold" x="0" y="15">🛠️ Building:</text>
+          <text fill="#334155" x="130" y="15">Modern Frontends &amp; AI Integrations</text>
         </g>
-        <g transform="translate(0, 50)">
-          <text fill="#2563EB" x="0" y="15">🐙 GitHub:</text>
-          <text fill="#06B6D4" x="140" y="15">github.com/Regi25</text>
+        <g transform="translate(0, 52)">
+          <text fill="#2563EB" font-weight="bold" x="0" y="15">🐙 GitHub:</text>
+          <text fill="#1D4ED8" x="130" y="15">github.com/Regi25</text>
         </g>
-        <g transform="translate(0, 75)">
-          <text fill="#2563EB" x="0" y="15">🌐 Portfolio:</text>
-          <text fill="#06B6D4" x="140" y="15">my-profile-psi-nine.vercel.app</text>
+        <g transform="translate(0, 78)">
+          <text fill="#2563EB" font-weight="bold" x="0" y="15">🌐 Portfolio:</text>
+          <text fill="#1D4ED8" x="130" y="15">my-profile-psi-nine.vercel.app</text>
         </g>
       </g>
 
-      <!-- Skills Section -->
-      <g transform="translate(0, 270)">
-        <text class="font-mono" font-size="12" fill="#475569" x="0" y="0">CONFIGURED_SKILLS_SET:</text>
+      <!-- ==================== SKILLS AREA ==================== -->
+      <g transform="translate(0, 275)" opacity="0">
+        <animate attributeName="opacity" values="0;1" keyTimes="0;1" begin="1.8s" dur="1.5s" fill="freeze" />
+        <text class="font-mono" font-size="12" fill="#475569" x="0" y="0">CONFIGURED_TECH_STACK:</text>
+        
         <g transform="translate(0, 15)">
-          <!-- Row 1 -->
           <g transform="translate(0, 0)">
-            <rect class="skill-pill" x="0" y="0" width="80" height="30" rx="8" />
-            <text class="font-sans skill-text" font-size="12" x="40" y="19" text-anchor="middle">React</text>
-            
-            <rect class="skill-pill" x="90" y="0" width="85" height="30" rx="8" />
-            <text class="font-sans skill-text" font-size="12" x="132.5" y="19" text-anchor="middle">Next.js</text>
-            
-            <rect class="skill-pill" x="185" y="0" width="105" height="30" rx="8" />
-            <text class="font-sans skill-text" font-size="12" x="237.5" y="19" text-anchor="middle">TypeScript</text>
-
-            <rect class="skill-pill" x="300" y="0" width="100" height="30" rx="8" />
-            <text class="font-sans skill-text" font-size="12" x="350" y="19" text-anchor="middle">Tailwind</text>
-
-            <rect class="skill-pill" x="410" y="0" width="80" height="30" rx="8" />
-            <text class="font-sans skill-text" font-size="12" x="450" y="19" text-anchor="middle">Zustand</text>
+            <g transform="translate(0,0)"><rect class="skill-pill" width="75" height="30" rx="8" /><text class="font-sans skill-text" font-size="12" x="37.5" y="19" text-anchor="middle">React</text></g>
+            <g transform="translate(85,0)"><rect class="skill-pill" width="80" height="30" rx="8" /><text class="font-sans skill-text" font-size="12" x="40" y="19" text-anchor="middle">Next.js</text></g>
+            <g transform="translate(175,0)"><rect class="skill-pill" width="105" height="30" rx="8" /><text class="font-sans skill-text" font-size="12" x="52.5" y="19" text-anchor="middle">TypeScript</text></g>
+            <g transform="translate(290,0)"><rect class="skill-pill" width="85" height="30" rx="8" /><text class="font-sans skill-text" font-size="12" x="42.5" y="19" text-anchor="middle">Tailwind</text></g>
+            <g transform="translate(385,0)"><rect class="skill-pill" width="80" height="30" rx="8" /><text class="font-sans skill-text" font-size="12" x="40" y="19" text-anchor="middle">Zustand</text></g>
           </g>
 
-          <!-- Row 2 -->
           <g transform="translate(0, 42)">
-            <rect class="skill-pill" x="0" y="0" width="80" height="30" rx="8" />
-            <text class="font-sans skill-text" font-size="12" x="40" y="19" text-anchor="middle">Node.js</text>
-            
-            <rect class="skill-pill" x="90" y="0" width="85" height="30" rx="8" />
-            <text class="font-sans skill-text" font-size="12" x="132.5" y="19" text-anchor="middle">Postgres</text>
-            
-            <rect class="skill-pill" x="185" y="0" width="80" height="30" rx="8" />
-            <text class="font-sans skill-text" font-size="12" x="225" y="19" text-anchor="middle">Docker</text>
-
-            <rect class="skill-pill" x="275" y="0" width="65" height="30" rx="8" />
-            <text class="font-sans skill-text" font-size="12" x="307.5" y="19" text-anchor="middle">Git</text>
-
-            <rect class="skill-pill" x="350" y="0" width="80" height="30" rx="8" />
-            <text class="font-sans skill-text" font-size="12" x="390" y="19" text-anchor="middle">Figma</text>
+            <g transform="translate(0,0)"><rect class="skill-pill" width="80" height="30" rx="8" /><text class="font-sans skill-text" font-size="12" x="40" y="19" text-anchor="middle">Node.js</text></g>
+            <g transform="translate(90,0)"><rect class="skill-pill" width="85" height="30" rx="8" /><text class="font-sans skill-text" font-size="12" x="42.5" y="19" text-anchor="middle">Postgres</text></g>
+            <g transform="translate(185,0)"><rect class="skill-pill" width="75" height="30" rx="8" /><text class="font-sans skill-text" font-size="12" x="37.5" y="19" text-anchor="middle">Docker</text></g>
+            <g transform="translate(270,0)"><rect class="skill-pill" width="60" height="30" rx="8" /><text class="font-sans skill-text" font-size="12" x="30" y="19" text-anchor="middle">Git</text></g>
+            <g transform="translate(340,0)"><rect class="skill-pill" width="75" height="30" rx="8" /><text class="font-sans skill-text" font-size="12" x="37.5" y="19" text-anchor="middle">Figma</text></g>
           </g>
         </g>
       </g>
 
-      <!-- Bottom Social Row -->
-      <g transform="translate(0, 380)">
+      <!-- ==================== SOCIAL / BOTTOM FOOTER ==================== -->
+      <g transform="translate(0, 385)" opacity="0">
+        <animate attributeName="opacity" values="0;1" keyTimes="0;1" begin="2.5s" dur="1.5s" fill="freeze" />
+        
         <g transform="translate(0, 0)">
-          <circle cx="15" cy="15" r="15" fill="#EDF2F7" stroke="rgba(15,23,42,0.06)" />
-          <path d="M15,5 C9.48,5 5,9.48 5,15 C5,19.42 7.87,23.17 11.84,24.5 C12.34,24.59 12.52,24.28 12.52,24.02 C12.52,23.78 12.51,22.95 12.5,22.09 C9.72,22.69 9.13,20.75 9.13,20.75 C8.68,19.59 8.02,19.28 8.02,19.28 C7.11,18.66 8.09,18.67 8.09,18.67 C9.1,18.74 9.63,19.71 9.63,19.71 C10.53,21.25 11.98,20.8 12.55,20.55 C12.64,19.9 12.9,19.46 13.19,19.21 C10.97,18.96 8.64,18.1 8.64,14.27 C8.64,13.18 9.03,12.29 9.67,11.59 C9.57,11.34 9.23,10.32 9.77,8.94 C9.77,8.94 10.61,8.67 12.52,9.96 C13.32,9.74 14.18,9.63 15,9.63 C15.82,9.63 16.68,9.74 17.48,9.96 C19.39,8.67 20.23,8.94 20.23,8.94 C20.77,10.32 20.43,11.34 20.33,11.59 C20.97,12.29 21.36,13.18 21.36,14.27 C21.36,18.11 19.03,18.95 16.8,19.2 C17.16,19.51 17.48,20.13 17.48,21.08 C17.48,22.44 17.47,23.54 17.47,23.87 C17.47,24.14 17.65,24.45 18.16,24.35 C22.13,23.02 25,19.27 25,14.85 C25,9.48 20.52,5 15,5 Z" fill="#475569" />
+          <rect class="social-btn" width="32" height="32" rx="10" />
+          <path class="social-icon" d="M16,7 C11.03,7 7,11.03 7,16 C7,19.97 9.58,23.35 13.15,24.54 C13.6,24.62 13.76,24.35 13.76,24.11 C13.76,23.9 13.75,23.15 13.75,22.38 C11.25,22.92 10.72,21.18 10.72,21.18 C10.31,20.14 9.72,19.86 9.72,19.86 C8.9,19.3 9.78,19.31 9.78,19.31 C10.69,19.37 11.17,20.24 11.17,20.24 C11.98,21.62 13.29,21.22 13.8,21 C13.88,20.41 14.12,20.01 14.38,19.79 C12.38,19.56 10.28,18.79 10.28,15.34 C10.28,14.36 10.63,13.56 11.21,12.93 C11.12,12.71 10.81,11.79 11.3,10.55 C11.3,10.55 12.05,10.31 13.77,11.47 C14.49,11.27 15.26,11.17 16,11.17 C16.74,11.17 17.51,11.27 18.23,11.47 C19.95,10.31 20.7,10.55 20.7,10.55 C21.19,11.79 20.88,12.71 20.79,12.93 C21.37,13.56 21.72,14.36 21.72,15.34 C21.72,18.8 19.62,19.56 17.61,19.78 C17.93,20.06 18.22,20.62 18.22,21.48 C18.22,22.7 18.21,23.7 18.21,24 C18.21,24.25 18.37,24.53 18.83,24.44 C22.41,23.24 25,19.87 25,15.9 C25,10.93 20.97,7 16,7 Z" />
         </g>
         
         <g transform="translate(45, 0)">
-          <circle cx="15" cy="15" r="15" fill="#EDF2F7" stroke="rgba(15,23,42,0.06)" />
-          <path d="M10,11 H13 V12.5 H13.1 C13.5,11.7 14.5,11 16,11 C19,11 20,12.5 20,15.5 V21 H17 V16 C17,14.5 16.5,13.5 15,13.5 C13.8,13.5 13,14.3 13,15.5 V21 H10 V11 Z M6,7.5 C6,6.7 6.7,6 7.5,6 C8.3,6 9,6.7 9,7.5 C9,8.3 8.3,9 7.5,9 C6.7,9 6,8.3 6,7.5 Z M6,11 H9 V21 H6 V11 Z" fill="#475569" />
+          <rect class="social-btn" width="32" height="32" rx="10" />
+          <path class="social-icon" d="M12,13 H14.5 V14.5 H14.55 C14.9,13.8 15.8,13 17.2,13 C20,13 21,14.5 21,17.2 V22 H18 V17.5 C18,16.2 17.5,15.2 16,15.2 C14.8,15.2 14,16 14,17.2 V22 H11 V13 Z M8,9.5 C8,8.7 8.7,8 9.5,8 C10.3,8 11,8.7 11,9.5 C11,10.3 10.3,11 9.5,11 C8.7,11 8,10.3 8,9.5 Z M8,13 H11 V22 H8 V13 Z" />
         </g>
 
-        <g transform="translate(100, 7)" class="font-mono" font-size="11">
-          <text fill="#10B981" x="0" y="10">● SYSTEM_STABLE_ONLINE</text>
+        <!-- Status Dot Indicating Online state -->
+        <g transform="translate(95, 7)" class="font-mono" font-size="12">
+          <circle cx="10" cy="5" r="4" fill="#10B981">
+            <animate attributeName="opacity" values="0.4;1;0.4" dur="2s" repeatCount="indefinite" />
+          </circle>
+          <text fill="#10B981" x="22" y="9">SYSTEM_ONLINE</text>
         </g>
       </g>
     </g>
   </g>
 </svg>
+
